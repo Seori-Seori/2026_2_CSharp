@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 
 namespace All_InOne
 {
@@ -54,9 +55,12 @@ namespace All_InOne
 
         }
 
-
+        int finalHp ;
+        int finalAttack ;
         private void button1_Click(object sender, EventArgs e)
+
         {
+
             if (textBox1.Text == "")
             {
                 MessageBox.Show("이름을 입력하세요");
@@ -73,58 +77,48 @@ namespace All_InOne
                 return;
             }
 
-            int hp;
-            int attack;
+
             if (직업.SelectedItem.ToString() == "전사")
             {
-                hp = 1000;
-                attack = 20;
-                ghp = hp;
-                gattack = attack;
+                
+                ghp = 1400;
+                gattack = 70;
             }
             else if (직업.SelectedItem.ToString() == "법사")
             {
-                hp = 100;
-                attack = 525;
-                ghp = hp;
-                gattack = attack;
+               
+                ghp = 600;
+                gattack = 160;
             }
             else if (직업.SelectedItem.ToString() == "궁수")
             {
-                hp = 400;
-                attack = 15;
-                ghp = hp;
-                gattack = attack;
+                ghp = 900;
+                gattack = 105;
             }
 
             else if (직업.SelectedItem.ToString() == "용사")
             {
-                hp = 2000;
-                attack = 34440;
-                ghp = hp;
-                gattack = attack;
+                ghp = 1100;
+                gattack = 95;
             }
             else if (직업.SelectedItem.ToString() == "백수")
             {
-                hp = 50;
-                attack = 5;
-                ghp = hp;
-                gattack = attack;
+                ghp = 750;
+                gattack = 80;
             }
-            int finalHp = ghp;
-            int finalAttack = gattack;
+
 
             if (radioButton1.Checked)
             {
-                finalHp = ghp + 2999;
+                finalHp = ghp + 300;
                 finalAttack = gattack + 20;
                 label4.Text = "hp: " + finalHp;
                 label6.Text = "공격력: " + finalAttack;
             }
             else if (radioButton2.Checked)
             {
-                finalHp = ghp + 100;
-                finalAttack = gattack + 25;
+                finalHp = ghp ;
+                finalAttack = gattack;
                 label4.Text = "hp: " + finalHp;
                 label6.Text = "공격력: " + finalAttack;
             }
@@ -132,7 +126,7 @@ namespace All_InOne
 
             else if (radioButton3.Checked)
             {
-                finalHp = ghp - 600;
+                finalHp = ghp - 200;
                 finalAttack = gattack - 10;
                 label4.Text = "hp: " + finalHp;
                 label6.Text = "공격력: " + finalAttack;
@@ -172,6 +166,91 @@ namespace All_InOne
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+        int monsterHp;
+        int monsterAttack;
+        private void button2_Click(object sender, EventArgs e)
+        {
+            game = true;
+            Random rand = new Random();
+            monsterHp = rand.Next(500, 1201);//랜덤 함수 마지막에 +1을 해줘야 1200까지 나옴
+            monsterAttack = rand.Next(50, 151);
+            MessageBox.Show("몬스터 체력: " + monsterHp);
+            label7.Text = "몬스터 체력: " + monsterHp;
+            Console.WriteLine("몬스터 체력: " + monsterHp);
+            label8.Text = "공격력: " + finalAttack;
+            Console.WriteLine("공격력: " + finalAttack);
+            label9.Text = "몬스터  공격력: " + monsterAttack;
+            Console.WriteLine("몬스터  공격력: " + monsterAttack);
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+            label8.Text = "공격력: " + finalAttack;
+            Console.WriteLine("공격력: " + finalAttack);
+        }
+
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+        bool game = false;
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (game == false)
+            {
+             MessageBox.Show("전투를 시작하세요.");
+                return;// 게임 로직
+            }
+            monsterHp -= finalAttack;
+            listBox1.Items.Add($"{textBox1.Text}이(가) 몬스터에게 {finalAttack}의 데미지를 입혔습니다.");
+            if (monsterHp < 0)
+            {
+                monsterHp = 0;
+            }
+            if(monsterHp > 0)
+            {
+                finalHp -= monsterAttack;
+                listBox1.Items.Add($"{textBox1.Text}이(가) 몬스터에게 {monsterAttack}의 데미지를 입었습니다.");
+                if (finalHp < 0)
+                {
+                    finalHp = 0;
+                }
+                label4.Text = "hp: " + finalHp;
+                if (finalHp == 0)
+                {
+                    game = false;
+                    MessageBox.Show("패배했습니다.");
+                }
+            }
+            if (monsterHp == 0)
+            {
+                game = false;
+                MessageBox.Show("몬스터를 처치했습니다!");
+            }
+            label7.Text = "몬스터 체력: " + monsterHp;
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }
