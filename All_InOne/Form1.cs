@@ -171,6 +171,7 @@ namespace All_InOne
         int monsterAttack;
         private void button2_Click(object sender, EventArgs e)
         {
+            pictureBox1.Visible = true;
             game = true;
             Random rand = new Random();
             monsterHp = rand.Next(500, 1201);//랜덤 함수 마지막에 +1을 해줘야 1200까지 나옴
@@ -190,12 +191,6 @@ namespace All_InOne
         }
 
         private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-
         {
 
         }
@@ -242,6 +237,7 @@ namespace All_InOne
             }
             if (monsterHp == 0)
             {
+                pictureBox1.Visible = false;
                 game = false;
                 MessageBox.Show("몬스터를 처치했습니다!");
             }
@@ -251,6 +247,31 @@ namespace All_InOne
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Left)
+            {
+                pictureBox1.Left -= 10; // Move the picture box to the left
+            }
+            else if (e.KeyCode == Keys.Right)
+            {
+                pictureBox1.Left += 10; // Move the picture box to the right        
+            }
+            else if (e.KeyCode == Keys.Up)
+            {
+                pictureBox1.Top -= 10; // Move the picture box up
+            }
+            else if (e.KeyCode == Keys.Down)
+            {
+                pictureBox1.Top += 10; // Move the picture box down
+            }
         }
     }
 }
