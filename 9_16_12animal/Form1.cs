@@ -20,6 +20,7 @@ namespace _9_16_12animal
         private void button1_Click(object sender, EventArgs e)
         {
             pictureBox1.Visible = true;
+
         }
     }
 }
