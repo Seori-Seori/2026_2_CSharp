@@ -34,7 +34,7 @@
             // 
             // btn_draw
             // 
-            this.btn_draw.Location = new System.Drawing.Point(532, 50);
+            this.btn_draw.Location = new System.Drawing.Point(12, 12);
             this.btn_draw.Name = "btn_draw";
             this.btn_draw.Size = new System.Drawing.Size(75, 23);
             this.btn_draw.TabIndex = 0;
@@ -44,7 +44,7 @@
             // 
             // btn_init
             // 
-            this.btn_init.Location = new System.Drawing.Point(532, 105);
+            this.btn_init.Location = new System.Drawing.Point(12, 41);
             this.btn_init.Name = "btn_init";
             this.btn_init.Size = new System.Drawing.Size(75, 23);
             this.btn_init.TabIndex = 1;

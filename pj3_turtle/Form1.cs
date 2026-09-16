@@ -19,7 +19,32 @@ namespace pj3_turtle
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Turtle.Forward(10);
+            
+
+            int swidth = 400, sheight = 400, exitcode = 0;
+            int r, g, b, angle, dist;
+            float curX, curY;
+
+            this.Text = "거북이 마음대로 다님";
+            this.ClientSize = new Size(swidth, sheight);
+
+            Random rand = new Random();
+            Turtle.Delay = 10;
+            while(true)
+            {
+                r = rand.Next(0, 256);
+                g = rand.Next(0, 256);
+                b = rand.Next(0, 256);
+                Turtle.PenColor = Color.FromArgb(r, g, b);
+                angle = rand.Next(0, 360);
+                dist = rand.Next(10, 100);
+                Turtle.Rotate(angle);
+                Turtle.Forward(dist);
+                curX = Turtle.X;
+                curY = Turtle.Y;
+                if (curX < 0 || curX > swidth || curY < 0 || curY > sheight)
+                    break;
+            }
         }
 
         private void btn_init_Click(object sender, EventArgs e)
