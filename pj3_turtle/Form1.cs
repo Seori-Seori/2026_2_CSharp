@@ -20,7 +20,7 @@ namespace pj3_turtle
         private void button1_Click(object sender, EventArgs e)
         {
             
-
+            /*
             int swidth = 400, sheight = 400, exitcode = 0;
             int r, g, b, angle, dist;
             float curX, curY;
@@ -45,6 +45,45 @@ namespace pj3_turtle
                 if (curX < 0 || curX > swidth || curY < 0 || curY > sheight)
                     break;
             }
+            */
+
+
+
+            Turtle.PenColor = Color.Red;
+            Turtle.PenUp();
+            Turtle.MoveTo(-150, 0);
+            for(int i = 0; i < 9; i++)
+            {
+                Turtle.PenDown();   
+                Turtle.Rotate(20);
+                Turtle.Forward(50);
+
+                Turtle.PenUp();
+                Turtle.Rotate(20);
+                Turtle.Forward(50);
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         }
 
         private void btn_init_Click(object sender, EventArgs e)
