@@ -10,6 +10,7 @@ namespace pj3_Console
     {
         static void Main(string[] args)
         {
+            /*
             int a = 2, b = 3, c = 4;
             int result1, mok, namugi;
             float result2;
@@ -27,7 +28,20 @@ namespace pj3_Console
             Console.WriteLine("{0:D} / {1:D}의 몫은 {2:D}", c, b, mok);
 
             namugi = c % b;
-            Console.WriteLine("{0:D} / {1:D}의 나머지는 {2:D}", c, b, namugi);
+            Console.WriteLine("{0:D} / {1:D}의 나머지는 {2:D}", c, b, namugi); */
+
+
+            //두번 째 실습
+            string s1 = "100", s2 = "100.123";
+
+            Console.WriteLine(int.Parse(s1) + (float.Parse(s2)));
+
+            int n1 = 100;
+            float n2 = 100.123f;
+            Console.WriteLine(n1.ToString() + n2.ToString());
+
+
+
         }
     }
 }
