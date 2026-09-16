@@ -20,7 +20,7 @@ namespace pj3_turtle
         private void button1_Click(object sender, EventArgs e)
         {
             
-            /*
+            
             int swidth = 400, sheight = 400, exitcode = 0;
             int r, g, b, angle, dist;
             float curX, curY;
@@ -29,7 +29,7 @@ namespace pj3_turtle
             this.ClientSize = new Size(swidth, sheight);
 
             Random rand = new Random();
-            Turtle.Delay = 10;
+            Turtle.Delay = 50;
             while(true)
             {
                 r = rand.Next(0, 256);
@@ -37,19 +37,33 @@ namespace pj3_turtle
                 b = rand.Next(0, 256);
                 Turtle.PenColor = Color.FromArgb(r, g, b);
                 angle = rand.Next(0, 360);
-                dist = rand.Next(10, 100);
+                dist = rand.Next(1, 100);
                 Turtle.Rotate(angle);
                 Turtle.Forward(dist);
                 curX = Turtle.X;
                 curY = Turtle.Y;
-                if (curX < 0 || curX > swidth || curY < 0 || curY > sheight)
-                    break;
+                if ((-swidth/2 <= curX && curX <= swidth/2) && (-sheight/2 <= curY && curY <= sheight/2))
+                {
+
+                }
+                else
+                {
+                    Turtle.PenUp();
+                    Turtle.MoveTo(0, 0);
+                    Turtle.PenDown();
+
+                    exitcode++;
+                    if(exitcode == 5)
+                    {
+                        break;
+                    }
+                }
             }
-            */
+            
 
 
-
-            Turtle.PenColor = Color.Red;
+            /*원을 그리는 거북이
+            Turtle.PenColor = Color.MediumPurple;
             Turtle.PenUp();
             Turtle.MoveTo(-150, 0);
             for(int i = 0; i < 9; i++)
@@ -61,29 +75,7 @@ namespace pj3_turtle
                 Turtle.PenUp();
                 Turtle.Rotate(20);
                 Turtle.Forward(50);
-            }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            }*/
         }
 
         private void btn_init_Click(object sender, EventArgs e)
