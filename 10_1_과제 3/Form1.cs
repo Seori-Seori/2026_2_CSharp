@@ -1,6 +1,6 @@
 using System;
 using System.Windows.Forms;
-
+using System.Drawing; // Point를 사용해 PictureBox 위치를 변경하기 위해 사용
 namespace _10_1_과제3
 {
     public partial class Form1 : Form
@@ -13,8 +13,22 @@ namespace _10_1_과제3
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            // TODO: 누른 화살표 키에 따라 이동 방향을 결정한다.
-            // TODO: pb_image.Location을 해당 방향으로 10픽셀 옮긴다.
+            if(e.KeyCode == Keys.Up)
+            {
+                pb_image.Location = new Point(pb_image.Location.X, pb_image.Location.Y - 10);
+            }
+            else if (e.KeyCode == Keys.Down)
+            {
+                pb_image.Location = new Point(pb_image.Location.X, pb_image.Location.Y + 10);
+            }
+            else if (e.KeyCode == Keys.Left)
+            {
+                pb_image.Location = new Point(pb_image.Location.X - 10, pb_image.Location.Y);
+            }
+            else if (e.KeyCode == Keys.Right)
+            {
+                pb_image.Location = new Point(pb_image.Location.X + 10, pb_image.Location.Y);
+            }
         }
     }
 }
