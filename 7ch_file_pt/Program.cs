@@ -14,7 +14,7 @@ namespace _7ch_file_pt
             string inStr;
 
             inFp = new StreamReader("C:\\Temp\\data1.txt");
-
+            /*
             inStr = inFp.ReadLine();
             Console.WriteLine(inStr);
 
@@ -23,8 +23,14 @@ namespace _7ch_file_pt
 
             inStr = inFp.ReadLine();
             Console.WriteLine(inStr);
-
-            inFp.Close();
+            */
+            string[] inStrAry;
+            inStrAry = File.ReadAllLines("C:\\Temp\\data1.txt");
+            foreach (string str in inStrAry)
+            {
+                Console.WriteLine(str);
+            }
+            //inFp.Close();
         }
     }
 }
