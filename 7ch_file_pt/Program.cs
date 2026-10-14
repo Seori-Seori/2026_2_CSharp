@@ -23,14 +23,28 @@ namespace _7ch_file_pt
 
             inStr = inFp.ReadLine();
             Console.WriteLine(inStr);
-            */
+            
             string[] inStrAry;
             inStrAry = File.ReadAllLines("C:\\Temp\\data1.txt");
             foreach (string str in inStrAry)
             {
                 Console.WriteLine(str);
             }
-            //inFp.Close();
+            inFp.Close();*/
+
+            string[] inStrAry;
+            string fName;
+
+            Console.Write("파일이름 입력");
+            fName = Console.ReadLine();
+
+            inStrAry = File.ReadAllLines(fName);
+
+            foreach (string i in inStrAry)
+            {
+                Console.WriteLine(i);
+            }
+
         }
     }
 }
