@@ -68,6 +68,7 @@
             // 
             // tb_key
             // 
+            this.tb_key.BackColor = System.Drawing.SystemColors.HotTrack;
             this.tb_key.Location = new System.Drawing.Point(477, 194);
             this.tb_key.Name = "tb_key";
             this.tb_key.Size = new System.Drawing.Size(156, 25);
