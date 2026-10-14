@@ -32,10 +32,10 @@
             this.파일열기ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.닫기ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.파일ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pb_image = new System.Windows.Forms.PictureBox();
-            this.tbar_image = new System.Windows.Forms.TrackBar();
             this.열기ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.닫기ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.pb_image = new System.Windows.Forms.PictureBox();
+            this.tbar_image = new System.Windows.Forms.TrackBar();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_image)).BeginInit();
@@ -77,6 +77,20 @@
             this.파일ToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
             this.파일ToolStripMenuItem.Text = "파일";
             // 
+            // 열기ToolStripMenuItem1
+            // 
+            this.열기ToolStripMenuItem1.Name = "열기ToolStripMenuItem1";
+            this.열기ToolStripMenuItem1.Size = new System.Drawing.Size(122, 26);
+            this.열기ToolStripMenuItem1.Text = "열기";
+            this.열기ToolStripMenuItem1.Click += new System.EventHandler(this.열기ToolStripMenuItem1_Click);
+            // 
+            // 닫기ToolStripMenuItem1
+            // 
+            this.닫기ToolStripMenuItem1.Name = "닫기ToolStripMenuItem1";
+            this.닫기ToolStripMenuItem1.Size = new System.Drawing.Size(122, 26);
+            this.닫기ToolStripMenuItem1.Text = "닫기";
+            this.닫기ToolStripMenuItem1.Click += new System.EventHandler(this.닫기ToolStripMenuItem1_Click);
+            // 
             // pb_image
             // 
             this.pb_image.Location = new System.Drawing.Point(81, 117);
@@ -93,20 +107,7 @@
             this.tbar_image.Name = "tbar_image";
             this.tbar_image.Size = new System.Drawing.Size(382, 56);
             this.tbar_image.TabIndex = 2;
-            // 
-            // 열기ToolStripMenuItem1
-            // 
-            this.열기ToolStripMenuItem1.Name = "열기ToolStripMenuItem1";
-            this.열기ToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
-            this.열기ToolStripMenuItem1.Text = "열기";
-            this.열기ToolStripMenuItem1.Click += new System.EventHandler(this.열기ToolStripMenuItem1_Click);
-            // 
-            // 닫기ToolStripMenuItem1
-            // 
-            this.닫기ToolStripMenuItem1.Name = "닫기ToolStripMenuItem1";
-            this.닫기ToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
-            this.닫기ToolStripMenuItem1.Text = "닫기";
-            this.닫기ToolStripMenuItem1.Click += new System.EventHandler(this.닫기ToolStripMenuItem1_Click);
+            this.tbar_image.Scroll += new System.EventHandler(this.tbar_image_Scroll);
             // 
             // openFileDialog1
             // 

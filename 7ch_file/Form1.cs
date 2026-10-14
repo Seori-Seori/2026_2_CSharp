@@ -41,5 +41,27 @@ namespace _7ch_file
                     return;
             pb_image.Image = Bitmap.FromFile(ofd.FileName);
         }
+
+        private void tbar_image_Scroll(object sender, EventArgs e)
+        {
+            Bitmap bitmap = new Bitmap(pb_image.Image);
+            int R,G, B;
+            Color c;
+
+            for (int i = 0; i < bitmap.Width; i++)
+            {
+                for (int j = 0; j < bitmap.Height; j++)
+                {
+                    c = bitmap.GetPixel(i, j);
+                    R = c.R + tbar_image.Value;
+                    G = c.G + tbar_image.Value;
+                    B = c.B + tbar_image.Value;
+                    if (R > 255) R = 255;
+                    if (G > 255) G = 255;
+                    if (B > 255) B = 255;
+                    bitmap.SetPixel(i, j, Color.FromArgb(R, G, B));
+                }
+            }
+        }
     }
 }
