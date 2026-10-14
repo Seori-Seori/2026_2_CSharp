@@ -4,17 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Management.Instrumentation;
 namespace _7ch_push
 {
     internal class Program
     {
         static void Main(string[] args)
         {
+            StreamReader inFp;
             StreamWriter outFp;
             string outStr;
             string fName;
-
-            outFp = new StreamWriter("C:\\Temp\\data2.txt");
+            string inStr;
+            /*outFp = new StreamWriter("C:\\Temp\\data2.txt");
 
             while (true)
             {
@@ -32,8 +34,20 @@ namespace _7ch_push
                     outFp.Close();
                     Console.WriteLine("정상처리됨.");
                     break;
-                }
+                }*/
+
+            inFp = new StreamReader("C:\\windows\\win.ini");
+            outFp = new StreamWriter("C:\\Temp\\data3.txt");
+
+            while (true)
+            {
+                inStr  = inFp.ReadLine();
+                if (inStr == null) break;
+                outFp.WriteLine(inStr);
             }
+            inFp.Close();
+            outFp.Close();
+            Console.WriteLine("정상처리됨.");
         }
     }
 }
