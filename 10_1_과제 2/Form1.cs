@@ -1,6 +1,7 @@
 using System;
 using System.Windows.Forms;
 using System.Drawing; // Image.FromFile()로 이미지 파일을 불러오기 위해 사용
+using System.IO;
 namespace _10_1_과제2
 {
     public partial class Form1 : Form
@@ -17,9 +18,9 @@ namespace _10_1_과제2
 
             string[] images =
             {
-                @"C:\CookC#\w05_img\dog1.png",
-                @"C:\CookC#\w05_img\cat1.png",
-                @"C:\CookC#\w05_img\bird1.png"
+                Path.GetFullPath(Path.Combine(Application.StartupPath, @"..\..\..\w05_img\dog1.png")),
+                Path.GetFullPath(Path.Combine(Application.StartupPath, @"..\..\..\w05_img\cat1.png")),
+                Path.GetFullPath(Path.Combine(Application.StartupPath, @"..\..\..\w05_img\bird1.png"))
             };
 
             string selectedImage = images[random.Next(images.Length)];
