@@ -1,5 +1,4 @@
 using System;
-using System.Data;
 using System.Data.SqlClient;
 
 namespace _11_04_3
@@ -8,6 +7,7 @@ namespace _11_04_3
     {
         static void Main(string[] args)
         {
+            // w10: SQL Server 연결 → 데이터 조회 → 출력 → 연결 종료
             string connStr = @"Server=localhost\SQLEXPRESS;Database=naverDB;Integrated Security=True;Connect Timeout=5;";
 
             try
@@ -15,49 +15,39 @@ namespace _11_04_3
                 using (SqlConnection conn = new SqlConnection(connStr))
                 {
                     conn.Open();
-                    Console.WriteLine("연결 성공 (아이디를 비워두면 종료)");
+                    Console.WriteLine("SQL Server 연결 성공");
+                    Console.WriteLine();
 
-                    while (true)
+                    string sql = "SELECT id, userName, email, birthYear FROM dbo.userTable ORDER BY id";
+
+                    using (SqlCommand cmd = new SqlCommand(sql, conn))
+                    using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        Console.Write("사용자 ID => ");
-                        string id = Console.ReadLine();
-                        if (string.IsNullOrWhiteSpace(id)) break;
+                        Console.WriteLine("아이디\t이름\t이메일\t\t출생연도");
+                        Console.WriteLine("-------------------------------------------------------------");
 
-                        Console.Write("사용자 이름 => ");
-                        string name = Console.ReadLine();
-                        Console.Write("사용자 이메일 => ");
-                        string email = Console.ReadLine();
-                        Console.Write("사용자 출생연도 => ");
-                        string yearText = Console.ReadLine();
-
-                        int year;
-                        if (id.Length > 4 || string.IsNullOrWhiteSpace(name) ||
-                            name.Length > 15 || string.IsNullOrWhiteSpace(email) ||
-                            email.Length > 15 || !int.TryParse(yearText, out year) ||
-                            year < 1 || year > 9999)
+                        int count = 0;
+                        while (reader.Read())
                         {
-                            Console.WriteLine("입력 오류: ID 최대 4자, 이름/이메일 최대 15자, 출생연도 숫자");
-                            continue;
+                            string id = reader.GetString(0).Trim();
+                            string userName = reader.GetString(1).Trim();
+                            string email = reader.GetString(2).Trim();
+                            int birthYear = reader.GetInt32(3);
+
+                            Console.WriteLine("{0}\t{1}\t{2}\t{3}", id, userName, email, birthYear);
+                            count++;
                         }
 
-                        using (SqlCommand cmd = new SqlCommand(
-                            @"IF NOT EXISTS (SELECT 1 FROM dbo.userTable WHERE id = @id)
-                              INSERT INTO dbo.userTable (id, userName, email, birthYear)
-                              VALUES (@id, @name, @email, @year);", conn))
-                        {
-                            cmd.Parameters.Add("@id", SqlDbType.Char, 4).Value = id;
-                            cmd.Parameters.Add("@name", SqlDbType.Char, 15).Value = name;
-                            cmd.Parameters.Add("@email", SqlDbType.Char, 15).Value = email;
-                            cmd.Parameters.Add("@year", SqlDbType.Int).Value = year;
-                            Console.WriteLine(cmd.ExecuteNonQuery() > 0 ?
-                                "입력 완료" : "이미 존재하는 ID입니다.");
-                        }
+                        Console.WriteLine();
+                        Console.WriteLine("조회된 회원: {0}명", count);
                     }
                 }
             }
             catch (SqlException ex)
             {
-                Console.WriteLine("SQL Server 오류: " + ex.Message);
+                Console.WriteLine("SQL Server 연결 또는 조회 오류:");
+                Console.WriteLine(ex.Message);
+                Console.WriteLine("SQL Server (SQLEXPRESS) 실행 여부와 11_04_1/setup_naverDB.sql 실행 여부를 확인하세요.");
             }
         }
     }
