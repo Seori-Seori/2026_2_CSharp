@@ -39,6 +39,7 @@ namespace _11_04_1
 
                     using (SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM dbo.userTable;", conn))
                         Console.WriteLine("DB·테이블 준비 완료 / 회원 {0}명", cmd.ExecuteScalar());
+                        Console.WriteLine("생성완료");
                 }
             }
             catch (SqlException ex)
