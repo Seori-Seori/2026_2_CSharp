@@ -1,7 +1,7 @@
 using System;
 using System.IO;
 
-namespace _01_28_7
+namespace _10_28_7
 {
     internal class Program
     {
