@@ -1,16 +1,8 @@
-# 11월 4일 · 실습 1 — DB·테이블 생성과 기본 데이터 입력
+# 11/04 실습 1 — [소스 13-1] 교재 그대로
 
-- 교재 `Project13_1` (w10 강의자료 p.26~33)에 대응
-- `11_04_1/Program.cs`는 C#의 `SqlConnection` / `SqlCommand`로 `naverDB`와 `userTable`을 생성하고 기본 회원 4명을 넣습니다.
-- 강의자료의 `DROP TABLE`은 기존 회원 데이터를 지울 수 있어 제외했습니다. 재실행해도 없는 회원만 추가합니다.
-- SQL 스크립트 `setup_naverDB.sql`도 같은 폴더에 보존했습니다.
-
-PowerShell에서 SQL만 먼저 생성하려면 저장소 루트 `C:\CookC#`에서 아래를 실행합니다.
-
-```powershell
-sqlcmd -S localhost\SQLEXPRESS -E -i ".\11_04_1\setup_naverDB.sql"
-```
-
-Visual Studio에서는 저장소 루트의 `11_04_SQL_전체실습.sln`을 열고 `11_04_1`을 시작 프로젝트로 선택해 실행하세요.
-
-나머지 실습은 `11_04_2` 콘솔 입력, `11_04_3` 콘솔 조회, `11_04_4` Windows Forms 입력/조회입니다.
+- 자료: `w10 강의자료.pdf` 31~33페이지, `Project13_1`
+- `Program.cs`는 `naverDB`에 접속하여 **`userTable`을 삭제한 다음 다시 만들고**, 교재의 회원 4명을 입력합니다.
+- **주의:** `DROP TABLE userTable`을 실행하면 기존 회원 데이터가 모두 사라집니다. 사용자 요청에 따라 교재 코드를 바꾸지 않았습니다.
+- 먼저 SQL Server에 `naverDB` 데이터베이스가 있어야 합니다. 교재는 17~25페이지에서 데이터베이스 생성 과정을 설명합니다.
+- `setup_naverDB.sql`은 이전에 생성한 **별도 보조 파일**이며 교재의 [소스 13-1] 코드가 아닙니다. 교재와 대조할 때는 `Program.cs`를 보세요.
+- 원문 코드는 필요한 `using`·`namespace`·`Program` 껍데기 안에 넣었으며 SQL/제어 흐름을 추가·변경하지 않았습니다.
