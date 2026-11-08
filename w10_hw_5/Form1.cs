@@ -89,10 +89,10 @@ namespace w10_hw_5
             ListViewItem item;
             while (reader.Read())
             {
-                data1 = reader.GetString(0);          // 아이디
-                data2 = reader.GetString(1);          // 이름
-                data3 = reader.GetString(2);          // 이메일
-                data4 = reader.GetInt32(3).ToString();// 출생연도
+                data1 = reader.GetString(0);
+                data2 = reader.GetString(1);
+                data3 = reader.GetString(2);
+                data4 = reader.GetInt32(3).ToString();
 
                 item = new ListViewItem(data1);
                 item.SubItems.Add(data2);
