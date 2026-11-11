@@ -1,8 +1,13 @@
-﻿using System;
+using System;
+using System.Windows.Forms;
 
-public class Class1
+namespace _11_11_1
 {
-	public Class1()
-	{
-	}
+    public partial class SelectForm : Form
+    {
+        public SelectForm()
+        {
+            InitializeComponent();
+        }
+    }
 }

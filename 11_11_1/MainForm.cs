@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace _11_11_1
 {
-    public partial class MainForm1 : Form
+    public partial class MainForm : Form
     {
-        public MainForm1()
+        public MainForm()
         {
             InitializeComponent();
         }
