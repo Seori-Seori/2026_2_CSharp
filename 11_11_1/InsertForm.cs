@@ -19,12 +19,13 @@ namespace _11_11_1
 
         private void InsertForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            conn.Close();
+            if (conn != null)
+                conn.Close();
         }
 
         private void btn_ok_Click(object sender, EventArgs e)
         {
-            connStr = "Server = localhost;Database=CookDB;Trusted_Connection = True;";
+            connStr = "Server = localhost\\SQLEXPRESS;Database=CookDB;Trusted_Connection = True;";
             conn = new SqlConnection(connStr);
             conn.Open();
 

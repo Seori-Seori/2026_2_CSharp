@@ -24,7 +24,7 @@ namespace _11_11_1
 
         private void btn_select_Click(object sender, EventArgs e)
         {
-            SelectFrom selectForm = new SelectFrom();
+            SelectForm selectForm = new SelectForm();
             selectForm.ShowDialog();
         }
 
@@ -48,12 +48,12 @@ namespace _11_11_1
 
         private void btn_delete_Click(object sender, EventArgs e)
         {
-            if(tb_delete_id.Text == "")
+            if(tb_update_id.Text == "")
             {
                 MessageBox.Show("삭제할 아이디를 먼저 입력하세요");
                 return;
             }
-            DeleteForm subForm = new DeleteForm(tb_delete_id.Text);
+            DeleteForm subForm = new DeleteForm(tb_update_id.Text);
             subForm.ShowDialog();
         }
     }

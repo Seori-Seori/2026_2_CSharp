@@ -19,6 +19,9 @@ namespace _11_11_1
             conn = new SqlConnection(connStr);
             conn.Open();
 
+            cmd = new SqlCommand();
+            cmd.Connection = conn;
+
             list_member.View = View.Details;
             list_member.GridLines = true;
             int listWidth = list_member.Width;
@@ -58,7 +61,9 @@ namespace _11_11_1
                 MessageBox.Show("삭제할 아이디를 먼저 선택하세요");
                 return;
             }
-            DeleteForm subForm = new DeleteForm();
+            int selectRow = list_member.SelectedItems[0].Index;
+            string selectID = list_member.Items[selectRow].SubItems[0].Text;
+            DeleteForm subForm = new DeleteForm(selectID);
             subForm.ShowDialog();
             this.Close();
         }
@@ -70,7 +75,9 @@ namespace _11_11_1
                 MessageBox.Show("수정할 아이디를 먼저 선택하세요");
                 return;
             }
-            UpdateForm subForm = new UpdateForm();
+            int selectRow = list_member.SelectedItems[0].Index;
+            string selectID = list_member.Items[selectRow].SubItems[0].Text;
+            UpdateForm subForm = new UpdateForm(selectID);
             subForm.ShowDialog();
             this.Close();
         }

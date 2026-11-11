@@ -133,6 +133,7 @@ namespace _11_11_1
             this.btn_cancel.TabIndex = 0;
             this.btn_cancel.Text = "취소";
             this.btn_cancel.UseVisualStyleBackColor = true;
+            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
             // DeleteForm
             // 

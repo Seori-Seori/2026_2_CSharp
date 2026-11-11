@@ -26,14 +26,14 @@ namespace _11_11_1
 
         private void DeleteForm_Load(object sender, EventArgs e)
         {
-            connStr = "Server = localhost;Database=CookDB;Trusted_Connection = True;";
+            connStr = "Server = localhost\\SQLEXPRESS;Database=CookDB;Trusted_Connection = True;";
             conn = new SqlConnection(connStr);
             conn.Open();
 
             cmd = new SqlCommand();
             cmd.Connection = conn;
 
-            cmd.CommandText = "SELECT * FROM Member WHERE MemberID = @MemberID";
+            cmd.CommandText = "SELECT * FROM member WHERE id = '" + memberID + "'";
             reader = cmd.ExecuteReader();
 
             if (!reader.Read())
@@ -64,13 +64,18 @@ namespace _11_11_1
             conn.Close();
         }
 
+        private void btn_cancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         private void btn_ok_Click(object sender, EventArgs e)
         {
             string data1, sql;
 
             data1 = tb_id.Text.Trim();
 
-            sql = "Delete FROM Member WHERE MemberID = @MemberID";
+            sql = "DELETE FROM member WHERE id = '" + data1 + "'";
             cmd.CommandText = sql;
             cmd.ExecuteNonQuery();
 

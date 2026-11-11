@@ -48,10 +48,10 @@ namespace _11_11_1
                 data3 = reader.GetString(2).Trim();
                 data4 = reader.GetInt32(3).ToString().Trim();
 
-                tb_update_id.Text = data1;
-                tb_update_name.Text = data2;
-                tb_update_email.Text = data3;
-                tb_update_birth.Text = data4;
+                tb_id.Text = data1;
+                tb_name.Text = data2;
+                tb_email.Text = data3;
+                tb_birth.Text = data4;
                 reader.Close();
             }
         }
@@ -64,10 +64,10 @@ namespace _11_11_1
         private void btn_ok_Click(object sender, EventArgs e)
         {
             string data1, data2, data3, data4,sql;
-            data1 = tb_update_id.Text;
-            data2 = tb_update_name.Text;
-            data3 = tb_update_email.Text;
-            data4 = tb_update_birth.Text;
+            data1 = tb_id.Text;
+            data2 = tb_name.Text;
+            data3 = tb_email.Text;
+            data4 = tb_birth.Text;
 
             sql = "UPDATE member SET name = '" + data2 + "', email = '" + data3 + "', birth = " + data4 + " WHERE id = '" + data1 + "'";
             cmd.CommandText = sql;
